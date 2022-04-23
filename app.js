@@ -14,3 +14,22 @@ app.get('/', (req, res) =>{
 app.listen(port, () => {
 console.log(`Example app listening on port ${port}`)
 })
+
+//respondiendo texto 
+//localhost:3000/launchx
+app.get('/magdiel', (req, res) => {
+res.send('Bienvenidos a Launch X')
+})
+//regresando un objeto
+//localhost:3000/explorersInNode
+app.get('/explorersInNode', (req, res) =>{
+    const explorer = {name:"Explorer", msg:"Hola"}
+res.send(explorer)
+})
+
+//Query Params: recibir parametros por la url
+// http://localhost:3000/explorers/Magdiel
+//req.params = {"explorerName":"Magdiel"}
+app.get('/explorers/:explorerName', (req, res)=>{
+    res.send(req.params)
+})
